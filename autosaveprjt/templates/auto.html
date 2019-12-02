@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  </head>
+  <body>
+    Modify the form all you want. It will only save 1 second after you are done making changes to whatever input.
+    <br />
+    Written for <a href="http://stackoverflow.com/a/19911256/796832">this answer on StackOverflow</a>
+    <br /><br />
+
+    <form class="contact-form" method="post">
+        First name: <input type="text" id="fname" name="fname"><br>
+        Last name: <input type="text" id="lname" name="lname"><br>
+        <input type="checkbox" id="check" name="vehicle" value="Bike">I have a bike<br>
+        <textarea id="thetextarea"></textarea><br>
+        <div class="row ">
+            <div class="col-sm-3">
+                <div class="list-group list-group-horizontal-sm" style="font-size: 20px;font-weight:bold" >
+                  <a class="list-group-item list-group-item-action " role="tab" style="width: 300px;background-color: #000000; color: white"><center>When did your symptoms begin? </center></a>
+
+                </div>
+            </div>
+            <div class="col-sm-9 ">
+              <input type="text"  hidden name="symptoms" id="symp1">
+              <div class="list-group list-group-horizontal-sm " id="hello" style="font-size: 20px;font-weight:bold" >
+                  <a class="list-group-item list-group-item-action ml-4 " id="oi1" role="tab" data-toggle="list" onclick="symp(this)" style="width: 140px;"><center>1 day</center>
+                  </a>
+                  <a class="list-group-item list-group-item-action ml-2" id="oi2" role="tab" data-toggle="list" onclick="symp(this)" style="width: 140px;"><center><input type="text" hidden name="symptoms"hidden value="">2 days</center></a>
+                  <a class="list-group-item list-group-item-action ml-2" id="oi3" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center>3 days</center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi4" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center>4 days</center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi5" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center>5 days</center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi6" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center>6 days</center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi7" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center>1 week</center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi8" data-toggle="list" onclick="symp(this)" role="tab" style="width: 140px;"><center>1-2 weeks </center></a>
+                  <a class="list-group-item list-group-item-action ml-2 " id="oi9" data-toggle="list" role="tab" onclick="symp(this)" style="width: 140px;"><center> >4 weeks </center></a>
+                </div>
+              </div>
+            </div>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="form-status-holder"></div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+function bat1() {
+let item = document.getElementById("BAT1");
+let cell = document.getElementById("battack1");
+if (item.value == "") {
+item.value = "yes";
+cell.style.backgroundColor = "lightgreen";
+
+console.log(item.value);
+} else {
+item.value = "";
+console.log(item.value);
+cell.style.backgroundColor = "white";
+}
+}
+
+function bat2() {
+let item = document.getElementById("BAT2");
+let cell = document.getElementById("battack2");
+if (item.value == "") {
+item.value = "yes";
+cell.style.backgroundColor = "lightgreen";
+
+//console.log(item.value);
+} else {
+item.value = "";
+// console.log(item.value);
+cell.style.backgroundColor = "white";
+}
+}
+
+function bat3() {
+let item = document.getElementById("BAT3");
+let cell = document.getElementById("battack3");
+if (item.value == "") {
+item.value = "yes";
+cell.style.backgroundColor = "lightgreen";
+
+//console.log(item.value);
+} else {
+item.value = "";
+// console.log(item.value);
+cell.style.backgroundColor = "white";
+}
+}
+function symp(data) {
+let result;
+result = data.innerText;
+document.querySelector('#symp1').value = result;
+console.log(document.querySelector('#symp1').value)
+    $('#symp1').val(result).trigger('change')
+}
+</script>
+<script type="text/javascript">
+var timeoutId;
+$('form input, form textarea').on('input propertychange change', function() {
+    console.log('Textarea Change');
+
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function() {
+        // Runs 1 second (1000 ms) after the last change
+        saveToDB();
+    }, 1000);
+});
+
+function saveToDB()
+{
+    console.log('Saving to the db');
+    form = $('.contact-form');
+    x = $('#fname').val();
+    y = $('#lname').val();
+    z = $('#symp1').val();
+    c = $('#check').val();
+    d = $('#thetextarea').val();
+
+	$.ajax({
+		url: "/autosave/",
+		type: "POST",
+		data: {x:x,y:y,z:z,c:c,d:d}, // serializes the form's elements.
+    datatype:'json',
+    beforeSend: function(xhr) {
+            // Let them know we are saving
+			$('.form-status-holder').html('Saving...');
+		},
+		success: function(data) {
+			var jqObj = jQuery(data); // You can get data returned from your ajax call here. ex. jqObj.find('.returned-data').html()
+            // Now show them we saved and when we did
+            var d = new Date();
+            $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+		},
+	});
+}
+
+// This is just so we don't go anywhere
+// and still save if you submit the form
+$('.contact-form').submit(function(e) {
+	saveToDB();
+	e.preventDefault();
+});
+</script>
+
+
+<script type="text/javascript">
+$('#userid').change(function(){
+      //fire your ajax call
+})
+</script>
+
+
+
+
+</body>
+</html>
